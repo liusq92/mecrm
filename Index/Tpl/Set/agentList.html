@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>代理商管理</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="__PUBLIC__/layuiadmin/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="__PUBLIC__/set.css" media="all">
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<include file="./Public/tmp/tmpAgent.html" flg="1" keywords="新增代理商" />
+<style>
+    .table-tr-selected-bg{
+                
+        background-color: #6189a7 !important;
+        color: #FFF;
+    }
+</style>
+
+<body>
+    <div class="layui-row layui-col-space30" id="demo-box" style="margin: 12px auto;">
+        <div class="layui-col-md8">
+            <div class="layui-panel">
+                <div class="menuHead">
+                    <span>代理商列表</span>
+                    <button lay-active="addAgent" type="button" class="layui-btn layui-btn-radius" style="float: right; margin:12px;">
+                        <i class="layui-icon">&#xe608;</i> 添加
+                    </button>
+                </div>
+                <table class="layui-hide" id="agent" lay-filter="agent"></table>
+            </div>
+        </div>
+        <div class="layui-col-md4">
+            <div class="layui-panel">
+                <div class="menuHead">
+                    <span class="agentCostListText">代理商成本列表</span>
+                    <button lay-active="addAgentCost" type="button" class="layui-btn layui-btn-radius layui-btn-normal" style="float: right; margin:12px;">
+                        <i class="layui-icon">&#xe608;</i> 添加
+                    </button>
+                </div>
+                <table class="layui-hide" id="agentCost" lay-filter="agentCost"></table>
+            </div>
+        </div>
+    </div>
+    <script src="__PUBLIC__/layuiadmin/layui/layui.js" charset="utf-8"></script>
+    <script type="text/html" id="switchHz">
+        
+          {{#  if(d.hzflg==1){ }}
+            <button class="layui-btn layui-btn-xs" disabled="true">合作中</button>
+          {{#  } else { }}
+            <button class="layui-btn layui-btn-primary layui-btn-xs" disabled="true">停止合作</button>
+          {{#  } }}
+       
+</script>
+    <script type="text/html" id="barAgent">
+        <a class="layui-btn layui-btn-xs" lay-event="edit"><i class="layui-icon">&#xe642;</i>编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon">&#xe640;</i>删除</a>
+</script>
+    <script type="text/html" id="barAgentCost">
+        <a class="layui-btn layui-btn-xs" lay-event="edit"><i class="layui-icon">&#xe642;</i>编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon">&#xe640;</i>删除</a>
+</script>
+    <script type="text/html" id="xuhao">
+        {{d.LAY_TABLE_INDEX+1}}
+</script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述 JS 路径需要改成你本地的 -->
+    <script>
+    var agentApi = {
+        "search": "{:U('Set/agentSearch')}",
+        "add": "{:U('Set/agentAdd')}",
+        "del": "{:U('Set/agentDel')}",
+        "edit": "{:U('Set/agentEdit')}",
+
+        "csearch": "{:U('Set/agentCostSearch')}",
+        "cadd": "{:U('Set/agentCostAdd')}",
+        "cdel": "{:U('Set/agentCostDel')}",
+        "cedit": "{:U('Set/agentCostEdit')}",
+    };
+    </script>
+    <script>
+    layui.config({
+        base: '__PUBLIC__/layuiadmin/' //静态资源所在路径
+    }).extend({
+        index: 'lib/index' //主入口模块
+    }).use(['index', 'setAgent']);
+    </script>
+</body>
+
+</html>

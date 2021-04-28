@@ -1,0 +1,116 @@
+<form class="layui-form" id="addAgent" action="" lay-filter="addAgent" style="width: 95%; margin-top: 12px;display: none;">
+    <!--顾客延伸信息-->
+    
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label"><span class="x-red">*</span>代理商名称</label>
+            <div class="layui-input-inline">
+                <input type="tel" name="name" lay-verify="required" placeholder="请输入代理商名称" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">联系方式</label>
+            <div class="layui-input-inline">
+                <input type="text" name="phone" lay-verify="required|phone" placeholder="请输入联系方式" maxlength="11" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">联系人</label>
+            <div class="layui-input-inline">
+                <input type="text" name="contacts" placeholder="请输入联系人信息" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">合作日期</label>
+            <div class="layui-input-inline">
+                <input type="text" name="hztime" id="hztime" maxlength="10" lay-verify="date" placeholder="请选择合作日期" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item x-city" id="addrs">
+        <label class="layui-form-label">地址</label>
+        <div class="layui-input-inline">
+            <select name="province" lay-filter="province">
+                <option value="">请选择省</option>
+            </select>
+        </div>
+        <div class="layui-input-inline">
+            <select name="city" lay-filter="city">
+                <option value="">请选择市</option>
+            </select>
+        </div>
+        <div class="layui-input-inline">
+            <select name="area" lay-filter="area">
+                <option value="">请选择县/区</option>
+            </select>
+        </div>
+        <div class="layui-input-inline">
+            <input name="addr" placeholder="请输入详细地址" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">备注内容</label>
+        <div class="layui-input-block">
+            <textarea placeholder="请输入内容" name="note" class="layui-textarea"></textarea>
+        </div>
+    </div>
+</form>
+
+
+<form class="layui-form" id="addAgentCost" action="" lay-filter="addAgentCost" style="width: 95%; margin-top: 12px;display: none;">
+    <!--顾客延伸信息-->
+    <input type="hidden" name="agentid">
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">代理商名称</label>
+            <div class="layui-input-inline">
+                <input type="tel" name="agentname" disabled="true" lay-verify="required" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+    <label class="layui-form-label"><span class="x-red">*</span>鉴定类型</label>
+    <div class="layui-input-block">
+      <select name="jdtype" lay-verify="required">
+        <option value=""></option>
+        <volist name="configd.jdlx" id="vo">
+            <option value="{$vo.value}">{$vo.value}</option>
+        </volist>
+      </select>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label"><span class="x-red">*</span>样本类型</label>
+    <div class="layui-input-block">
+      <select name="ybtype"  lay-verify="required">
+        <option value=""></option>
+        <volist name="configd.yblx" id="v">
+            <option value="{$v.value}">{$v.value}</option>
+        </volist>
+      </select>
+    </div>
+  </div>
+    
+   <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label"><span class="x-red">*</span>成本价</label>
+            <div class="layui-input-inline">
+                <input type="number" name="cost" placeholder="请输成本价格" lay-verify="required" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+    </div>
+    
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">备注内容</label>
+        <div class="layui-input-block">
+            <textarea placeholder="请输入内容" name="note" class="layui-textarea"></textarea>
+        </div>
+    </div>
+    <input id="subaddagentcost" type="hidden" lay-submit lay-filter="addAgentCostSub">
+</form>

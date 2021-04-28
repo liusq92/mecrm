@@ -1,0 +1,31 @@
+.layui-panel {
+    height: 800px;
+    /*overflow: auto;*/
+}
+
+#setMenu li {
+    height: 50px;
+    line-height: 43px;
+
+    /*text-align: center;*/
+    font-size: 15px;
+    /*border-top: 1px solid #ccc;*/
+}
+
+#setMenu li span {
+    width: 80%;
+    margin-left: 16px;
+    color: #428bca;
+}
+
+.menuHead {
+    height: 60px;
+    line-height: 60px;
+    font-size: 16px;
+    border-bottom: 1px solid #ccc;
+}
+
+.menuHead span {
+    margin-left: 12px;
+    font-weight: bold;
+}
